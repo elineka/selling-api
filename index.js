@@ -3,8 +3,10 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser')
+const register = require('./register.js');
 
 app.use(bodyParser.json())
+app.use('/register', register)
 
 app.get('/', (request, response) => {
   response.sendFile(path.join(__dirname,'view','index.html'))
